@@ -16,9 +16,15 @@ torchtext features along with nn.Transformer for language modeling via next word
  
  Our model, here will be the left hand side of the picture below, with the 
  exception that, we use masked self-attention, so that we can predict a word
- after a given word.
+ after a given word. 
 
-![transformer_pic](./img/transformer.png)
+![transformer_pic](./img/transformer.PNG)
+
+The picture below is more close to what we do here in this language model. We should also assume "W4" is also Masked, and we want to 
+predict the word after "W2". Details of number of heads and various layers might not be excatly as implemented in the code.
+
+![transformer_pic](./img/transformer2.PNG)
+
 
 ## 2 Dataset
 The WikiText language modeling dataset is a collection of over 100 million tokens extracted from the set of verified
@@ -26,7 +32,7 @@ Good and Featured articles on Wikipedia. The WikiText-2 dataset is a small versi
 contains only 2 million tokens. We want all these sentences next to each other, and then batch them. Afterward, by 
 setting a bptt length (back-propagating through time), we analyze it through our lm. 
 
-![sample_wikitext2](./img/sample_wikitext2.png)
+![sample_wikitext2](./img/sample_wikitext2.PNG)
 
 ### 2-1 batching the data:
 Let's assume we have nearly ~2,000,000 training sentences in Wikitext2 dataset. if we want them
@@ -40,7 +46,7 @@ columns, then the data is trimmed to fit. For instance, with the alphabet as the
 length of 26) and batch_size=4, we would divide the alphabet into 4 sequences of length 6, as shown
 in picture below:
   
-![batching_data](./img/batching_data.png)
+![batching_data](./img/batching_data.PNG)
 
 The other paramter to consider here is bptt (back propagation through time) length. In the picture above, 
 we assumed all the wikitext is concat to each other, then it is divided into 4 batches (4 columns). Within 
@@ -57,7 +63,7 @@ Let's repeat the example with bptt = 2. If we only consider the first column/bat
 2) src="CD" --> tgt="DE"
 1) src="EF" --> tgt="FG"
 
-![bbpt_and_batching](./img/bbpt_and_batching.png)
+![bbpt_and_batching](./img/bbpt_and_batching.PNG)
 
 
 
