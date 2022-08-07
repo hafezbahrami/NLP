@@ -1,0 +1,10 @@
+matplotlib
+numpy
+pandas
+scipy
+jupyter
+scikit-learn
+#-------------------
+torch
+# --- For Tranformer
+torchdata
