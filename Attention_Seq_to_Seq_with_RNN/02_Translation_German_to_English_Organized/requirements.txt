@@ -1,0 +1,8 @@
+jupyter
+pillow
+scikit-learn
+#-------------------
+torch
+# --- For Tranformer
+torchdata
+spacy
